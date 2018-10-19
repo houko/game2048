@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// 调用创建精灵图
     /// </summary>
-    void Start()
+    private void Start()
     {
         for (int i = 0; i < 4; i++)
         {
@@ -30,6 +31,8 @@ public class GameController : MonoBehaviour
     {
         GameObject go = new GameObject(string.Format("{0},{1}", r, c));
         go.AddComponent<Image>();
-        go.transform.SetParent(transform);
+        NumberSprite numberSprite = go.AddComponent<NumberSprite>();
+        numberSprite.SetImage(0);
+        go.transform.SetParent(transform, false);
     }
 }
