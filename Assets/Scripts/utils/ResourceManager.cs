@@ -11,6 +11,10 @@ namespace DefaultNamespace
     {
         private static readonly Dictionary<int, Sprite> Sprites;
 
+
+        /// <summary>
+        /// 构造方法
+        /// </summary>
         static ResourceManager()
         {
             Sprites = new Dictionary<int, Sprite>();
