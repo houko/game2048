@@ -1,2 +1,2 @@
-方格 * 4 + 5 * 间距 = 背景大小
-（背景大小 - 5 *间距 ） /4 = 方格大小
+1. 图集Atlas要放在Resources里,使用Resources.Load或Resources.LoadAll加载
+2. 
