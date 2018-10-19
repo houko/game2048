@@ -60,10 +60,11 @@ public class GameController : MonoBehaviour
     private void CreateSprite(int r, int c)
     {
         GameObject go = new GameObject(string.Format("{0},{1}", r, c));
-        go.AddComponent<Image>();
+        go.transform.SetParent(transform, false);
+        
+        Image unused = go.AddComponent<Image>();
         NumberSprite action = go.AddComponent<NumberSprite>();
         numberSpriteArray[r, c] = action;
         action.SetImage(0);
-        go.transform.SetParent(transform, false);
     }
 }
