@@ -12,6 +12,19 @@ using UnityEngine.UI;
 /// </summary>
 public class GameController : MonoBehaviour
 {
+    private GameCore gameCore;
+
+    private NumberSprite[,] numberSpriteArray;
+
+
+    private void Awake()
+    {
+        numberSpriteArray = new NumberSprite[4, 4];
+        GenerateNewNumber();
+        GenerateNewNumber();
+    }
+
+
     /// <summary>
     /// 创建游戏初始格子
     /// </summary>
@@ -21,9 +34,21 @@ public class GameController : MonoBehaviour
         {
             for (int j = 0; j < 4; j++)
             {
-                CreateSprite(i + 1, j + 1);
+                CreateSprite(i, j);
             }
         }
+    }
+
+
+    /// <summary>
+    /// 生成新数字
+    /// </summary>
+    private void GenerateNewNumber()
+    {
+        Location location;
+        int number;
+        gameCore.GenerateNumber(out location, out number);
+        numberSpriteArray[location.RIndex, location.CIndex].SetImage(number);
     }
 
 
@@ -36,8 +61,9 @@ public class GameController : MonoBehaviour
     {
         GameObject go = new GameObject(string.Format("{0},{1}", r, c));
         go.AddComponent<Image>();
-        NumberSprite numberSprite = go.AddComponent<NumberSprite>();
-        numberSprite.SetImage(0);
+        NumberSprite action = go.AddComponent<NumberSprite>();
+        numberSpriteArray[r, c] = action;
+        action.SetImage(0);
         go.transform.SetParent(transform, false);
     }
 }

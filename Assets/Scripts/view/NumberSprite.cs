@@ -11,13 +11,13 @@ namespace DefaultNamespace
     {
         private Image image;
 
-
         /// <summary>
         /// 获取当前组件上上的图片
         /// </summary>
         private void Awake()
         {
             image = GetComponent<Image>();
+           
         }
 
         /// <summary>
