@@ -8,7 +8,7 @@ namespace DefaultNamespace
         private Image image;
 
 
-        private void awake()
+        private void Awake()
         {
             image = GetComponent<Image>();
         }
