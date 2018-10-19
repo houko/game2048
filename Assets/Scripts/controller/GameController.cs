@@ -17,18 +17,31 @@ public class GameController : MonoBehaviour
     private NumberSprite[,] numberSpriteArray;
 
 
+    /// <summary>
+    /// 初始化操作
+    /// </summary>
     private void Awake()
     {
+        gameCore = new GameCore();
         numberSpriteArray = new NumberSprite[4, 4];
+        CreateInitMap();
+    }
+
+
+    /// <summary>
+    /// 开始游戏的时候默认创建2个数字
+    /// </summary>
+    private void Start()
+    {
         GenerateNewNumber();
         GenerateNewNumber();
     }
 
 
     /// <summary>
-    /// 创建游戏初始格子
+    /// 创建游戏4*4初始格子
     /// </summary>
-    private void Start()
+    private void CreateInitMap()
     {
         for (int i = 0; i < 4; i++)
         {
@@ -61,7 +74,7 @@ public class GameController : MonoBehaviour
     {
         GameObject go = new GameObject(string.Format("{0},{1}", r, c));
         go.transform.SetParent(transform, false);
-        
+
         Image unused = go.AddComponent<Image>();
         NumberSprite action = go.AddComponent<NumberSprite>();
         numberSpriteArray[r, c] = action;
