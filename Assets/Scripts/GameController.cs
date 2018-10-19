@@ -5,10 +5,15 @@ using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/// <inheritdoc />
+/// <summary>
+/// 控制游戏逻辑
+/// </summary>
 public class GameController : MonoBehaviour
 {
     /// <summary>
-    /// 调用创建精灵图
+    /// 创建游戏初始格子
     /// </summary>
     private void Start()
     {
@@ -23,7 +28,7 @@ public class GameController : MonoBehaviour
 
 
     /// <summary>
-    /// 创建精灵格子
+    /// 根据坐标创建精灵格子
     /// </summary>
     /// <param name="r">x坐标</param>
     /// <param name="c">y坐标</param>

@@ -3,6 +3,10 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// 资源读取管理类
+    /// </summary>
     public class ResourceManager : MonoBehaviour
     {
         private static readonly Dictionary<int, Sprite> Sprites;
