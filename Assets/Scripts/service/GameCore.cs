@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace DefaultNamespace
 {
     /// <summary>
     /// 游戏核心算法类，与平台无关
     /// </summary>
-    class GameCore
+    internal class GameCore
     {
-        private int[,] map;
-        private int[] mergeArray;
-        private int[] removeZeroArray;
-        private int[,] originalMap;
+        private readonly int[,] map;
+        private readonly int[] mergeArray;
+        private readonly int[] removeZeroArray;
+        private readonly int[,] originalMap;
 
         public int[,] Map
         {
@@ -41,10 +39,10 @@ namespace DefaultNamespace
             Array.Clear(removeZeroArray, 0, 4);
 
             int index = 0;
-            for (int i = 0; i < mergeArray.Length; i++)
+            foreach (var item in mergeArray)
             {
-                if (mergeArray[i] != 0)
-                    removeZeroArray[index++] = mergeArray[i]; //1
+                if (item != 0)
+                    removeZeroArray[index++] = item; //1
             }
 
             removeZeroArray.CopyTo(mergeArray, 0);
@@ -159,7 +157,6 @@ namespace DefaultNamespace
         {
             //移动前记录Map   
             Array.Copy(map, originalMap, map.Length);
-            IsChange = false; //假设没有发生改变
 
             switch (direction)
             {
@@ -184,7 +181,6 @@ namespace DefaultNamespace
         }
 
 
-        
         /// <summary>
         /// 检测地图是否发生变化
         /// </summary>
@@ -212,7 +208,7 @@ namespace DefaultNamespace
 
         private readonly List<Location> emptyLOC; //布局
 
-        
+
         /// <summary>
         /// 计算空格子
         /// </summary>
