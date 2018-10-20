@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,6 +36,7 @@ namespace DefaultNamespace
         public void CreateEffect()
         {
             iTween.ScaleFrom(gameObject, Vector3.zero, 0.3f);
+//            gameObject.transform.DOScale(Vector3.zero, 0.3f);
         }
     }
 }
