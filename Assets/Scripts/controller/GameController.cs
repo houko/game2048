@@ -102,6 +102,8 @@ public class GameController : MonoBehaviour, IPointerDownHandler, IDragHandler
         int number;
         gameCore.GenerateNumber(out location, out number);
         numberSpriteArray[location.RIndex, location.CIndex].SetImage(number);
+        numberSpriteArray[location.RIndex, location.CIndex].CreateEffect();
+        
     }
 
 
